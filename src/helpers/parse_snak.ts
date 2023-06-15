@@ -98,7 +98,7 @@ export const parsers = {
   'wikibase-sense': entity,
 } as const
 
-export function parseClaim (datatype, datavalue, options, claimId) {
+export function parseSnak (datatype, datavalue, options) {
   // Known case of missing datatype: form.claims, sense.claims
   datatype = datatype || datavalue.type
   // Known case requiring this: legacy "muscial notation" datatype
@@ -109,7 +109,6 @@ export function parseClaim (datatype, datavalue, options, claimId) {
   } catch (err) {
     if (err.message === 'parsers[datatype] is not a function') {
       err.message = `${datatype} claim parser isn't implemented
-      Claim id: ${claimId}
       Please report to https://github.com/maxlath/wikibase-sdk/issues`
     }
     throw err

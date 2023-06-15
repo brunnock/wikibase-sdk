@@ -1,4 +1,4 @@
-import type { SimplifySnaksOptions } from './simplify_claims.js'
+import type { SimplifyClaimsOptions } from './simplify_claims.js'
 import type { languages } from '../helpers/sitelinks_languages.js'
 
 export interface InstanceConfig {
@@ -16,7 +16,7 @@ export type ApiQueryParameters = Record<string, string | number | true>
 // export type Url = `http${string}`
 export type Url = string
 
-export interface SimplifyEntityOptions extends SimplifySnaksOptions, SimplifySitelinkOptions {}
+export interface SimplifyEntityOptions extends SimplifyClaimsOptions, SimplifySitelinkOptions {}
 
 export interface SimplifySitelinkOptions {
   addUrl?: boolean
