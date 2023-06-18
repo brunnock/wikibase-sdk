@@ -1,3 +1,6 @@
+import type { DataType } from '../types/claim.js'
+import type { SnakValue } from '../types/snakvalue.js'
+import type { SimplifySnakOptions } from '../types/simplify_claims.js'
 import { wikibaseTimeToEpochTime, wikibaseTimeToISOString, wikibaseTimeToSimpleDay } from './time.js'
 import type { TimeInputValue } from './time.js'
 
@@ -98,11 +101,11 @@ export const parsers = {
   'wikibase-sense': entity,
 } as const
 
-export function parseSnak (datatype, datavalue, options) {
+export function parseSnak (datatype: DataType | void, datavalue: SnakValue, options: SimplifySnakOptions) {
   // Known case of missing datatype: form.claims, sense.claims
-  datatype = datatype || datavalue.type
+  datatype = (datatype || datavalue.type) as DataType
   // Known case requiring this: legacy "muscial notation" datatype
-  datatype = datatype.replace(' ', '-')
+  datatype = datatype.replace(' ', '-') as DataType
 
   try {
     return parsers[datatype](datavalue, options)
