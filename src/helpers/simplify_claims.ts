@@ -108,10 +108,10 @@ export function simplifyPropertySnaks (propertySnaks: PropertySnaks, options: Si
 }
 
 function applyObjectSimplification (
-    obj: Claims | Snaks,
-    simplifyFn: typeof simplifyPropertyClaims | typeof simplifyPropertySnaks,
-    options: SimplifyClaimsOptions | SimplifySnaksOptions
-  ) {
+  obj: Claims | Snaks,
+  simplifyFn: typeof simplifyPropertyClaims | typeof simplifyPropertySnaks,
+  options: SimplifyClaimsOptions | SimplifySnaksOptions,
+) {
   const { propertyPrefix } = options
   const simplified = {}
   for (let [ propertyId, propertyArray ] of Object.entries(obj)) {
@@ -124,10 +124,10 @@ function applyObjectSimplification (
 }
 
 function applyArraySimplification (
-    array: PropertyClaims | PropertySnaks,
-    simplifyFn: typeof simplifyClaim | typeof simplifySnak,
-    options: SimplifyClaimsOptions | SimplifySnaksOptions
-  ) {
+  array: PropertyClaims | PropertySnaks,
+  simplifyFn: typeof simplifyClaim | typeof simplifySnak,
+  options: SimplifyClaimsOptions | SimplifySnaksOptions,
+) {
   const simplifiedArray = array
     .map(claimOrSnak => simplifyFn(claimOrSnak, options))
     // Filter-out novalue and somevalue claims,
