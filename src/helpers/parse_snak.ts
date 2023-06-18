@@ -1,8 +1,8 @@
-import type { DataType } from '../types/claim.js'
-import type { SnakValue } from '../types/snakvalue.js'
-import type { SimplifySnakOptions } from '../types/simplify_claims.js'
 import { wikibaseTimeToEpochTime, wikibaseTimeToISOString, wikibaseTimeToSimpleDay } from './time.js'
 import type { TimeInputValue } from './time.js'
+import type { DataType } from '../types/claim.js'
+import type { SimplifySnakOptions } from '../types/simplify_claims.js'
+import type { SnakValue } from '../types/snakvalue.js'
 
 const simple = datavalue => datavalue.value
 
